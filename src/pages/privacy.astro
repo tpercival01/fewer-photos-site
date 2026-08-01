@@ -1,0 +1,228 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Privacy | Fewer Photos"
+  description="How Fewer Photos accesses your photo library, stores review progress and handles optional location postmarks."
+>
+  <article class="policy">
+    <header class="page-header">
+      <p class="eyebrow">Legal information</p>
+      <h1>Privacy Policy</h1>
+      <p class="effective-date">Effective from 1 August 2026</p>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+
+      <p>
+        Fewer Photos is designed to work without an account. The application
+        does not require your name, email address or profile information.
+      </p>
+
+      <p>
+        Percival Studio does not receive copies of your photographs, photo
+        review decisions or Stamp Book collection.
+      </p>
+    </section>
+
+    <section>
+      <h2>Photo library access</h2>
+
+      <p>
+        Fewer Photos requests permission to access your Apple Photos library so
+        it can display photographs, organise them by month, update favourites
+        and submit photographs you select for deletion.
+      </p>
+
+      <p>
+        Access is controlled through iOS. You can change photo permissions at
+        any time through the Settings application on your device.
+      </p>
+    </section>
+
+    <section>
+      <h2>Photo review and deletion</h2>
+
+      <p>
+        Keep and delete decisions are stored by the application so that review
+        progress can continue between sessions.
+      </p>
+
+      <p>
+        Marking a photograph for deletion only adds it to the Fewer Photos
+        deletion queue. The application does not request its removal from Apple
+        Photos until you review the queue and explicitly confirm the deletion.
+      </p>
+
+      <p>
+        iOS presents its own system permission prompt when Fewer Photos submits
+        changes to the photo library.
+      </p>
+    </section>
+
+    <section>
+      <h2>Stamp Book progress</h2>
+
+      <p>The application may store progress including:</p>
+
+      <ul>
+        <li>Completed calendar months</li>
+        <li>Total reviewed photographs</li>
+        <li>Review activity dates and streaks</li>
+        <li>Undo milestones</li>
+        <li>Unlocked stamps</li>
+        <li>Accepted and rejected location postmarks</li>
+      </ul>
+
+      <p>
+        This information is stored with the application on your device and is
+        not sent to Percival Studio.
+      </p>
+    </section>
+
+    <section>
+      <h2>Location information in photographs</h2>
+
+      <p>
+        Some photographs contain geographic coordinates recorded by the camera
+        or retained when the image was shared or downloaded.
+      </p>
+
+      <p>
+        Fewer Photos may use those coordinates to offer optional town and
+        country postmarks after enough associated photographs have been
+        reviewed.
+      </p>
+
+      <p>
+        To obtain a readable town and country name, the coordinate is submitted
+        through Apple’s reverse-geocoding service. The photograph itself is not
+        included in that request. Use of the Apple service is subject to
+        Apple’s own privacy terms.
+      </p>
+
+      <p>
+        Every town postmark requires your confirmation. Rejecting a suggested
+        location removes those photographs from location-stamp progress without
+        changing their Keep or Delete decisions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Accounts, analytics and advertising</h2>
+
+      <p>
+        Fewer Photos does not require an account and does not include
+        third-party advertising, behavioural tracking or third-party analytics.
+      </p>
+
+      <p>
+        Percival Studio does not sell personal information, photographs or
+        review activity to advertisers or data brokers.
+      </p>
+    </section>
+
+    <section>
+      <h2>The Fewer Photos website</h2>
+
+      <p>
+        This companion website provides product, privacy and support
+        information. It does not connect to the Fewer Photos application or
+        receive your photo library, review progress or Stamp Book collection.
+      </p>
+    </section>
+
+    <section>
+      <h2>Deleting application data</h2>
+
+      <p>
+        Removing Fewer Photos from your device removes its locally stored
+        review and Stamp Book data, subject to any device backups managed
+        through your Apple Account.
+      </p>
+
+      <p>
+        Removing the application does not delete photographs from your Apple
+        Photos library.
+      </p>
+    </section>
+
+    <section>
+      <h2>Changes to this policy</h2>
+
+      <p>
+        This policy may be updated when the application’s features or data
+        practices change. The effective date at the top of this page will be
+        revised when an update is published.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+
+      <p>
+        Contact details for privacy and support enquiries will be published
+        before the application is released.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .policy {
+    max-width: 49rem;
+  }
+
+  .page-header {
+    width: 100%;
+    min-height: auto;
+    margin-bottom: clamp(4rem, 10vw, 7rem);
+    padding: 0;
+    display: block;
+    border: 0;
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    color: var(--colour-accent-bright);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  .effective-date {
+    font-size: 0.9rem;
+  }
+
+  section {
+    padding-block: 2rem;
+    border-top: 1px solid var(--colour-border);
+  }
+
+  section h2 {
+    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  section p:last-child,
+  section ul:last-child {
+    margin-bottom: 0;
+  }
+
+  ul {
+    margin: 0 0 1.5rem;
+    padding-left: 1.25rem;
+    color: var(--colour-text-muted);
+  }
+
+  li + li {
+    margin-top: 0.35rem;
+  }
+</style>

@@ -1,0 +1,332 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="How Fewer Photos Works"
+  description="Review photos month by month, keep or queue each image, then confirm deletions when you are ready."
+>
+  <section class="page-header">
+    <p class="eyebrow">How it works</p>
+    <h1>A large camera roll, broken into small decisions.</h1>
+
+    <p class="introduction">
+      Fewer Photos organises your library by month and presents one photograph
+      at a time. There are no automatic deletions and no pressure to finish a
+      review in one sitting.
+    </p>
+  </section>
+
+  <section class="steps" aria-label="Fewer Photos review process">
+    <article>
+      <span>01</span>
+      <h2>Choose a month</h2>
+      <p>
+        Your photo library is arranged into manageable monthly collections.
+        Start with yesterday, last summer or a forgotten year.
+      </p>
+    </article>
+
+    <article>
+      <span>02</span>
+      <h2>Review one photo</h2>
+      <p>
+        Swipe or use the clear controls to keep a photograph or place it into
+        the deletion queue.
+      </p>
+    </article>
+
+    <article>
+      <span>03</span>
+      <h2>Change your mind</h2>
+      <p>
+        Undo the most recent choice at any time. Favouriting is also available
+        without leaving the review.
+      </p>
+    </article>
+
+    <article>
+      <span>04</span>
+      <h2>Return when ready</h2>
+      <p>
+        Progress is saved automatically. Close the app halfway through a month
+        and continue from the remaining photos later.
+      </p>
+    </article>
+
+    <article>
+      <span>05</span>
+      <h2>Check the queue</h2>
+      <p>
+        Every photo marked for deletion remains visible in a separate queue.
+        Restore individual photographs before confirming anything.
+      </p>
+    </article>
+
+    <article>
+      <span>06</span>
+      <h2>Confirm with Apple Photos</h2>
+      <p>
+        Fewer Photos only requests deletion after you explicitly confirm the
+        queue. Apple Photos then presents its own system confirmation.
+      </p>
+    </article>
+  </section>
+
+  <section class="review-styles">
+    <div class="section-heading">
+      <p class="eyebrow">Choose your controls</p>
+      <h2>Use the review style that feels natural.</h2>
+    </div>
+
+    <div class="style-grid">
+      <article>
+        <div class="gesture vertical">
+          <span class="keep">Keep ↓</span>
+          <div class="photo-card">Photo</div>
+          <span class="delete">Delete ↑</span>
+        </div>
+
+        <div>
+          <h3>Vertical Review</h3>
+          <p>
+            Swipe down to keep and up to queue for deletion. Designed for
+            comfortable one-handed use.
+          </p>
+        </div>
+      </article>
+
+      <article>
+        <div class="gesture horizontal">
+          <span class="delete">← Delete</span>
+          <div class="photo-card">Photo</div>
+          <span class="keep">Keep →</span>
+        </div>
+
+        <div>
+          <h3>Classic Swipe</h3>
+          <p>
+            Swipe left to queue for deletion and right to keep. Familiar,
+            direct and available from Settings.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="safety-panel">
+    <div>
+      <p class="eyebrow">Built around deliberate deletion</p>
+      <h2>Queued first. Deleted only after confirmation.</h2>
+    </div>
+
+    <div>
+      <p>
+        Fewer Photos never silently removes an image. Your queue remains
+        reviewable until you choose to continue, and Apple provides the final
+        system-level deletion prompt.
+      </p>
+
+      <a href="/support">Read common questions</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    max-width: 54rem;
+    margin-bottom: clamp(4rem, 10vw, 7rem);
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    color: var(--colour-accent-bright);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 13ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .introduction {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .steps article {
+    min-height: 18rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.3rem;
+    background: color-mix(
+      in srgb,
+      var(--colour-surface) 88%,
+      transparent
+    );
+  }
+
+  .steps article > span {
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-bottom: 3.5rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--colour-coral-soft);
+    color: var(--colour-coral);
+    font-size: 0.7rem;
+    font-weight: 800;
+  }
+
+  .steps h2 {
+    margin-bottom: 1rem;
+    font-size: clamp(1.55rem, 3vw, 2.2rem);
+  }
+
+  .steps p {
+    margin-bottom: 0;
+  }
+
+  .review-styles {
+    padding-block: clamp(6rem, 13vw, 10rem);
+  }
+
+  .section-heading {
+    max-width: 48rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .section-heading h2 {
+    max-width: 15ch;
+  }
+
+  .style-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .style-grid article {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.4rem;
+    background: var(--colour-surface);
+  }
+
+  .gesture {
+    min-height: 17rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 1rem;
+    background: var(--colour-surface-raised);
+    color: var(--colour-text-muted);
+    font-size: 0.75rem;
+    font-weight: 750;
+  }
+
+  .gesture.vertical {
+    flex-direction: column;
+  }
+
+  .photo-card {
+    width: 8rem;
+    height: 10rem;
+    display: grid;
+    place-items: center;
+    border: 0.35rem solid var(--colour-surface);
+    border-radius: 0.9rem;
+    background:
+      radial-gradient(
+        circle at 68% 28%,
+        #f4d88f 0 8%,
+        transparent 9%
+      ),
+      linear-gradient(145deg, #89a9c0, #d8937e);
+    box-shadow: 0 0.8rem 2rem rgba(38, 45, 37, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.7rem;
+  }
+
+  .keep {
+    color: var(--colour-accent-bright);
+  }
+
+  .delete {
+    color: var(--colour-coral);
+  }
+
+  .style-grid h3 {
+    margin-bottom: 0.8rem;
+  }
+
+  .style-grid p {
+    margin-bottom: 0;
+  }
+
+  .safety-panel {
+    padding: clamp(2rem, 6vw, 4rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1fr);
+    gap: clamp(2rem, 7vw, 6rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.5rem;
+    background:
+      radial-gradient(
+        circle at 5% 5%,
+        rgba(217, 130, 130, 0.16),
+        transparent 18rem
+      ),
+      var(--colour-surface);
+  }
+
+  .safety-panel h2 {
+    max-width: 13ch;
+    margin-bottom: 0;
+  }
+
+  .safety-panel p {
+    margin-bottom: 1.2rem;
+  }
+
+  .safety-panel a {
+    color: var(--colour-accent-bright);
+    font-weight: 750;
+  }
+
+  .safety-panel a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 46rem) {
+    .steps,
+    .style-grid,
+    .safety-panel {
+      grid-template-columns: 1fr;
+    }
+
+    .steps article {
+      min-height: auto;
+    }
+
+    .steps article > span {
+      margin-bottom: 2.5rem;
+    }
+
+    .gesture.horizontal {
+      flex-direction: column;
+    }
+  }
+</style>

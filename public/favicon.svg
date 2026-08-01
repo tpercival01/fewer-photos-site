@@ -1,0 +1,27 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 64 64"
+  role="img"
+  aria-label="Fewer Photos"
+>
+  <rect width="64" height="64" rx="15" fill="#f6f5f2" />
+
+  <rect
+    x="12"
+    y="12"
+    width="40"
+    height="40"
+    rx="12"
+    fill="#d98282"
+  />
+
+  <path
+    d="M25 45V20h17v6H32v5h9v6h-9v8z"
+    fill="#f6f5f2"
+  />
+
+  <path
+    d="M45 14l1.5 4.5L51 20l-4.5 1.5L45 26l-1.5-4.5L39 20l4.5-1.5z"
+    fill="#87ae73"
+  />
+</svg>

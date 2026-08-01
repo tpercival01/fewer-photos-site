@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fewerphotos.thomaspercival.dev/sitemap-index.xml

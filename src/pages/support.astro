@@ -1,0 +1,254 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const questions = [
+  {
+    question: "Does Fewer Photos delete photographs automatically?",
+    answer:
+      "No. A Delete decision only places the photograph into the Fewer Photos deletion queue. You must review that queue and explicitly confirm before the app requests any change from Apple Photos.",
+  },
+  {
+    question: "Can I restore a photograph from the deletion queue?",
+    answer:
+      "Yes. Photographs can be removed from the queue before you confirm deletion.",
+  },
+  {
+    question: "Why does Fewer Photos need photo-library access?",
+    answer:
+      "Photo-library access is required to display photographs, organise them by month, update favourites and submit photographs you explicitly select for deletion.",
+  },
+  {
+    question: "Can I change a review decision?",
+    answer:
+      "Yes. Use Undo to reverse the most recent Keep or Delete decision. You can also leave a review and continue later without losing progress.",
+  },
+  {
+    question: "What counts as a reviewed photograph?",
+    answer:
+      "Both Keep and Delete decisions count as reviews. Favouriting a photograph does not complete its review by itself.",
+  },
+  {
+    question: "Can I change the swipe controls?",
+    answer:
+      "Yes. Settings includes Vertical Review and Classic Swipe. Vertical Review uses down to Keep and up to Delete. Classic Swipe uses right to Keep and left to Delete.",
+  },
+  {
+    question: "Why did a completed month show more photographs later?",
+    answer:
+      "A month can gain new photographs when images are imported, downloaded, restored or synchronised into Apple Photos. Fewer Photos will show those new items as remaining work.",
+  },
+  {
+    question: "How do location stamps work?",
+    answer:
+      "Some photographs contain geographic coordinates. After enough reviewed photographs are associated with one town, Fewer Photos may offer a postmark. You must confirm that the location represents your own time there before the stamp is added.",
+  },
+  {
+    question: "What happens when I choose Not Mine on a location stamp?",
+    answer:
+      "Those photographs are excluded from location-stamp progress. Their Keep or Delete decisions remain unchanged, and unrelated photographs can still qualify for future postmarks.",
+  },
+  {
+    question: "Does Fewer Photos require an account?",
+    answer:
+      "No. Review progress and Stamp Book data are stored with the application on your device.",
+  },
+];
+---
+
+<BaseLayout
+  title="Support | Fewer Photos"
+  description="Help and troubleshooting for photo reviews, deletion queues, swipe controls and the Fewer Photos Stamp Book."
+>
+  <section class="page-header">
+    <p class="eyebrow">Help and troubleshooting</p>
+    <h1>Fewer Photos Support</h1>
+
+    <p class="introduction">
+      Find answers about reviewing photographs, confirming deletions, changing
+      controls and collecting stamps.
+    </p>
+  </section>
+
+  <section class="questions" aria-labelledby="questions-heading">
+    <div class="section-heading">
+      <p class="eyebrow">Common questions</p>
+      <h2 id="questions-heading">Before contacting support</h2>
+    </div>
+
+    <div class="question-list">
+      {
+        questions.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="contact">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Report a problem</h2>
+    </div>
+
+    <div>
+      <p>
+        Direct support contact details will be published here before Fewer
+        Photos launches on the App Store.
+      </p>
+
+      <p>When reporting a problem, include:</p>
+
+      <ul>
+        <li>Your iPhone model</li>
+        <li>Your iOS version</li>
+        <li>The Fewer Photos version shown in Settings</li>
+        <li>The review style you were using</li>
+        <li>The month being reviewed</li>
+        <li>A description of what happened</li>
+      </ul>
+
+      <p>
+        Do not send private photographs, precise location coordinates or
+        screenshots containing sensitive personal information.
+      </p>
+    </div>
+  </section>
+
+  <section class="limitation">
+    <p class="eyebrow">Apple Photos controls final deletion</p>
+    <h2>Fewer Photos prepares the request. Apple asks for confirmation.</h2>
+
+    <p>
+      Photo-library permissions, final deletion approval and any recovery
+      options after deletion are managed by iOS and Apple Photos.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    max-width: 52rem;
+    margin-bottom: clamp(4rem, 10vw, 7rem);
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    color: var(--colour-accent-bright);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .introduction {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+  }
+
+  .section-heading {
+    max-width: 42rem;
+    margin-bottom: 2rem;
+  }
+
+  .question-list {
+    border-top: 1px solid var(--colour-border);
+  }
+
+  details {
+    border-bottom: 1px solid var(--colour-border);
+  }
+
+  summary {
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    color: var(--colour-text);
+    font-family:
+      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    font-weight: 750;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: "+";
+    flex: 0 0 auto;
+    color: var(--colour-coral);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  details[open] summary::after {
+    content: "−";
+  }
+
+  details p {
+    max-width: 48rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact {
+    margin-top: clamp(5rem, 12vw, 9rem);
+    padding: clamp(2rem, 5vw, 4rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.7fr) minmax(18rem, 1fr);
+    gap: clamp(2rem, 7vw, 6rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.5rem;
+    background:
+      radial-gradient(
+        circle at 5% 5%,
+        rgba(135, 174, 115, 0.16),
+        transparent 18rem
+      ),
+      var(--colour-surface);
+  }
+
+  .contact h2 {
+    margin-bottom: 0;
+  }
+
+  .contact ul {
+    margin: 0 0 1.5rem;
+    padding-left: 1.25rem;
+    color: var(--colour-text-muted);
+  }
+
+  .contact li + li {
+    margin-top: 0.35rem;
+  }
+
+  .contact p:last-child {
+    margin-bottom: 0;
+  }
+
+  .limitation {
+    margin-top: clamp(4rem, 10vw, 7rem);
+    padding-top: clamp(3rem, 8vw, 5rem);
+    border-top: 1px solid var(--colour-border);
+  }
+
+  .limitation h2 {
+    max-width: 18ch;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 44rem) {
+    .contact {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

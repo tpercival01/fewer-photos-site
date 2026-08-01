@@ -1,0 +1,469 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title='Fewer Photos | A calmer camera roll'
+  description='Review your camera roll month by month, safely queue unwanted photos and collect stamps as you tidy. No account, subscription or advertising.'
+>
+  <section class='hero'>
+    <div class='hero-copy'>
+      <p class='eyebrow'>A calmer camera roll for iPhone</p>
+
+      <h1>Keep the memories. Clear the clutter.</h1>
+
+      <p class='introduction'>
+        Fewer Photos turns an overwhelming camera roll into small monthly
+        reviews. Keep what matters, safely queue the rest and collect whimsical
+        stamps as your library becomes lighter.
+      </p>
+
+      <div class='actions'>
+        <span class='primary-action' aria-label='Fewer Photos is coming soon'>
+          Coming soon to iPhone
+        </span>
+
+        <a class='secondary-action' href='/how-it-works'> See how it works </a>
+      </div>
+
+      <ul class='assurances' aria-label='Product details'>
+        <li>£1.99 once</li>
+        <li>No account</li>
+        <li>No subscription</li>
+        <li>No advertising</li>
+      </ul>
+    </div>
+
+    <div class='phone-scene' aria-label='Preview of the Fewer Photos app'>
+      <div class='stamp stamp-one' aria-hidden='true'>
+        <span>✦</span>
+        <strong>First Sort</strong>
+      </div>
+
+      <div class='stamp stamp-two' aria-hidden='true'>
+        <span>☀</span>
+        <strong>Golden July</strong>
+      </div>
+
+      <div class='phone'>
+        <img
+          src='/hero-library.png'
+          alt='The Fewer Photos month library showing completed and in-progress months.'
+          class='phone-screenshot'
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class='benefits' aria-labelledby='benefits-heading'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Designed to feel manageable</p>
+      <h2 id='benefits-heading'>One month. One photo. One choice.</h2>
+    </div>
+
+    <div class='benefit-grid'>
+      <article>
+        <span>01</span>
+        <h3>Review in small pieces</h3>
+        <p>
+          Open any month and work through it at your own pace instead of facing
+          your entire library at once.
+        </p>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>Nothing vanishes immediately</h3>
+        <p>
+          Photos marked for deletion enter a visible queue. Review them again
+          before asking Apple Photos to remove anything.
+        </p>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>Keep progress rewarding</h3>
+        <p>
+          Complete months, build review streaks and rediscover old places to
+          fill a personal Stamp Book.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class='privacy-panel'>
+    <div>
+      <p class='eyebrow'>Private by design</p>
+      <h2>Your photo library stays yours.</h2>
+    </div>
+
+    <div>
+      <p>
+        Fewer Photos requires no account and does not upload your photographs.
+        Review decisions and Stamp Book progress are stored with the app on your
+        device.
+      </p>
+
+      <a href='/privacy'>Read the privacy policy</a>
+    </div>
+  </section>
+
+  <section class='final-call'>
+    <p class='eyebrow'>Fewer Photos</p>
+    <h2>A smaller camera roll without another monthly bill.</h2>
+    <p>Launching on iPhone for a single £1.99 purchase.</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    min-height: calc(100vh - 14rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(19rem, 0.92fr);
+    align-items: center;
+    gap: clamp(3rem, 8vw, 7rem);
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    margin-bottom: 1.1rem;
+    color: var(--colour-accent-bright);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 10ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .introduction {
+    max-width: 39rem;
+    margin-bottom: 2rem;
+    font-size: clamp(1.05rem, 2vw, 1.28rem);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .primary-action,
+  .secondary-action {
+    min-height: 3.2rem;
+    padding: 0.8rem 1.3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--colour-accent);
+    border-radius: 0.8rem;
+    font-weight: 750;
+  }
+
+  .primary-action {
+    background: var(--colour-accent);
+    color: #152013;
+    cursor: default;
+  }
+
+  .secondary-action {
+    color: var(--colour-accent-bright);
+    transition:
+      background 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .secondary-action:hover {
+    border-color: var(--colour-accent-bright);
+    background: rgba(135, 174, 115, 0.1);
+  }
+
+  .assurances {
+    margin: 1.6rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    list-style: none;
+  }
+
+  .assurances li {
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--colour-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--colour-surface) 82%, transparent);
+    color: var(--colour-text-muted);
+    font-size: 0.78rem;
+    font-weight: 650;
+  }
+
+  .phone {
+    width: min(100%, 21rem);
+    min-height: 41rem;
+    padding: 0.9rem 0.6rem 0.9rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border: 0.5rem solid #252925;
+    border-radius: 3rem;
+    background: var(--colour-background);
+    box-shadow:
+      0 2rem 5rem rgba(36, 45, 35, 0.18),
+      0 0 0 1px rgba(255, 255, 255, 0.18) inset;
+    transform: rotate(2.2deg);
+  }
+
+  .phone-screenshot {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 2.1rem;
+    border-radius: 2.1rem;
+  }
+
+  .phone-scene {
+    min-height: 42rem;
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  .phone {
+    width: min(100%, 21rem);
+    min-height: 41rem;
+    padding: 0.9rem 1rem 1.4rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border: 0.5rem solid #252925;
+    border-radius: 3rem;
+    background: var(--colour-background);
+    box-shadow:
+      0 2rem 5rem rgba(36, 45, 35, 0.18),
+      0 0 0 1px rgba(255, 255, 255, 0.18) inset;
+    transform: rotate(2.2deg);
+  }
+
+  .phone::before {
+    content: "";
+    width: 6.5rem;
+    height: 1.55rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    z-index: 4;
+    border-radius: 999px;
+    background: #252925;
+    transform: translateX(-50%);
+  }
+
+  .stamp {
+    width: 8.6rem;
+    min-height: 8.6rem;
+    padding: 1rem;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    border: 2px dashed currentColor;
+    border-radius: 1.2rem;
+    background: var(--colour-surface);
+    box-shadow: 0 1rem 2rem rgba(35, 42, 34, 0.15);
+    text-align: center;
+  }
+
+  .stamp span {
+    font-size: 2rem;
+  }
+
+  .stamp strong {
+    font-family:
+      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.1;
+  }
+
+  .stamp-one {
+    top: 2.5rem;
+    right: -1rem;
+    color: var(--colour-coral);
+    transform: rotate(9deg);
+  }
+
+  .stamp-two {
+    bottom: 1.5rem;
+    left: -1.5rem;
+    color: var(--colour-accent-bright);
+    transform: rotate(-8deg);
+  }
+
+  .benefits {
+    padding-block: clamp(6rem, 13vw, 10rem);
+  }
+
+  .section-heading {
+    max-width: 48rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .section-heading h2 {
+    max-width: 15ch;
+  }
+
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .benefit-grid article {
+    min-height: 20rem;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.3rem;
+    background: color-mix(in srgb, var(--colour-surface) 88%, transparent);
+  }
+
+  .benefit-grid article > span {
+    display: inline-grid;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-bottom: 4rem;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--colour-coral-soft);
+    color: var(--colour-coral);
+    font-size: 0.7rem;
+    font-weight: 800;
+  }
+
+  .benefit-grid h3 {
+    margin-bottom: 0.9rem;
+  }
+
+  .benefit-grid p {
+    margin-bottom: 0;
+  }
+
+  .privacy-panel {
+    padding: clamp(2rem, 6vw, 4rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1fr);
+    gap: clamp(2rem, 7vw, 6rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.5rem;
+    background:
+      radial-gradient(
+        circle at 5% 5%,
+        rgba(135, 174, 115, 0.2),
+        transparent 18rem
+      ),
+      var(--colour-surface);
+  }
+
+  .privacy-panel h2 {
+    max-width: 12ch;
+    margin-bottom: 0;
+  }
+
+  .privacy-panel p {
+    margin-bottom: 1.2rem;
+  }
+
+  .privacy-panel a {
+    color: var(--colour-accent-bright);
+    font-weight: 750;
+  }
+
+  .privacy-panel a:hover {
+    text-decoration: underline;
+  }
+
+  .final-call {
+    padding: clamp(6rem, 14vw, 11rem) 0 clamp(2rem, 5vw, 4rem);
+    text-align: center;
+  }
+
+  .final-call h2 {
+    max-width: 17ch;
+    margin-inline: auto;
+    margin-bottom: 1.4rem;
+  }
+
+  .final-call p {
+    margin-inline: auto;
+  }
+
+  @media (max-width: 56rem) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding-top: 2rem;
+    }
+
+    .hero-copy {
+      max-width: 44rem;
+    }
+
+    .phone-scene {
+      width: min(100%, 31rem);
+      margin-inline: auto;
+    }
+
+    .benefit-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .benefit-grid article {
+      min-height: auto;
+    }
+
+    .benefit-grid article > span {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  @media (max-width: 42rem) {
+    .actions,
+    .primary-action,
+    .secondary-action {
+      width: 100%;
+    }
+
+    .phone-scene {
+      min-height: 39rem;
+    }
+
+    .phone {
+      width: min(88%, 20rem);
+      min-height: 39rem;
+    }
+
+    .stamp {
+      width: 7rem;
+      min-height: 7rem;
+      padding: 0.8rem;
+    }
+
+    .stamp-one {
+      right: 0;
+    }
+
+    .stamp-two {
+      left: 0;
+    }
+
+    .privacy-panel {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

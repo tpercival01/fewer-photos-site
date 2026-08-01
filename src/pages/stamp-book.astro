@@ -1,0 +1,608 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const calendarStamps = [
+  { icon: "❄", title: "Fresh January", className: "sage" },
+  { icon: "♥", title: "Fond February", className: "coral" },
+  { icon: "≈", title: "Marching On", className: "blue" },
+  { icon: "☂", title: "April Showers", className: "blue" },
+  { icon: "❧", title: "Merry May", className: "sage" },
+  { icon: "✿", title: "June in Bloom", className: "coral" },
+  { icon: "☀", title: "Golden July", className: "gold" },
+  { icon: "◉", title: "August Glow", className: "gold" },
+  { icon: "●", title: "Soft September", className: "sage" },
+  { icon: "☾", title: "October Oddities", className: "blue" },
+  { icon: "♨", title: "Cosy November", className: "coral" },
+  { icon: "✦", title: "December Done", className: "gold" },
+];
+
+const achievementStamps = [
+  {
+    icon: "✦",
+    title: "First Sort",
+    detail: "Review your first photo.",
+    className: "coral",
+  },
+  {
+    icon: "100",
+    title: "Tidy Hundred",
+    detail: "Review 100 photos.",
+    className: "sage",
+  },
+  {
+    icon: "7",
+    title: "Seven-Day Shuffle",
+    detail: "Review photos across seven consecutive days.",
+    className: "blue",
+  },
+  {
+    icon: "?",
+    title: "Hidden Stamp",
+    detail: "Some stamps only reveal themselves when discovered.",
+    className: "locked",
+  },
+];
+---
+
+<BaseLayout
+  title="The Stamp Book | Fewer Photos"
+  description="Complete months, reach review milestones, build streaks and collect personal location stamps while tidying your camera roll."
+>
+  <section class="page-header">
+    <p class="eyebrow">The Stamp Book</p>
+    <h1>A little record of every photo-sorting victory.</h1>
+
+    <p class="introduction">
+      Tidying a camera roll is useful, but it does not need to feel like
+      administration. Fewer Photos turns completed months, review milestones
+      and rediscovered places into a personal collection of stamps.
+    </p>
+  </section>
+
+  <section class="passport-preview" aria-label="Example Fewer Photos Stamp Book">
+    <div class="passport-heading">
+      <div>
+        <p class="eyebrow">Your collection</p>
+        <h2>Every stamp tells part of your library's story.</h2>
+      </div>
+
+      <div class="collection-count">
+        <strong>18</strong>
+        <span>collected</span>
+      </div>
+    </div>
+
+    <div class="calendar-grid">
+      {
+        calendarStamps.map((stamp) => (
+          <article class={`stamp-card ${stamp.className}`}>
+            <div class="stamp-mark">
+              <span>{stamp.icon}</span>
+            </div>
+
+            <strong>{stamp.title}</strong>
+            <small>Month complete</small>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="stamp-types" aria-labelledby="stamp-types-heading">
+    <div class="section-heading">
+      <p class="eyebrow">More than monthly completion</p>
+      <h2 id="stamp-types-heading">Small goals hidden throughout the app.</h2>
+    </div>
+
+    <div class="achievement-grid">
+      {
+        achievementStamps.map((stamp) => (
+          <article class={stamp.className}>
+            <div class="achievement-mark">
+              <span>{stamp.icon}</span>
+            </div>
+
+            <div>
+              <h3>{stamp.title}</h3>
+              <p>{stamp.detail}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="postmarks">
+    <div class="postmark-copy">
+      <p class="eyebrow">Personal postmarks</p>
+      <h2>Rediscover the places already inside your library.</h2>
+
+      <p>
+        Review enough photographs associated with a town and Fewer Photos may
+        offer a local postmark. You decide whether the photographs genuinely
+        came from your own time there before anything is added.
+      </p>
+
+      <p>
+        Collect three accepted town stamps from one country to unlock its
+        passport stamp.
+      </p>
+    </div>
+
+    <div class="postmark-scene" aria-hidden="true">
+      <div class="country-card">
+        <small>Country passport</small>
+        <span>GB</span>
+        <strong>United Kingdom</strong>
+        <p>Three town stamps collected</p>
+      </div>
+
+      <div class="round-postmark postmark-one">
+        <span>WINDSOR</span>
+        <strong>10</strong>
+        <small>PHOTOS</small>
+      </div>
+
+      <div class="round-postmark postmark-two">
+        <span>LONDON</span>
+        <strong>10</strong>
+        <small>PHOTOS</small>
+      </div>
+
+      <div class="round-postmark postmark-three">
+        <span>BRIGHTON</span>
+        <strong>10</strong>
+        <small>PHOTOS</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy-note">
+    <div>
+      <p class="eyebrow">You stay in control</p>
+      <h2>Location stamps are always optional.</h2>
+    </div>
+
+    <div>
+      <p>
+        A location can belong to a downloaded image, a shared photograph or
+        somebody else's memory. Fewer Photos asks before adding every town
+        stamp, and rejecting one does not affect your photo review.
+      </p>
+
+      <a href="/privacy">How location information is handled</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    max-width: 55rem;
+    margin-bottom: clamp(4rem, 10vw, 7rem);
+  }
+
+  .eyebrow {
+    margin-bottom: 1rem;
+    color: var(--colour-accent-bright);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 13ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .introduction {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+  }
+
+  .passport-preview {
+    padding: clamp(1.5rem, 5vw, 3rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.75rem;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(135, 174, 115, 0.1),
+        transparent 45%
+      ),
+      var(--colour-surface);
+    box-shadow: 0 1.5rem 4rem rgba(44, 54, 42, 0.08);
+  }
+
+  .passport-heading {
+    margin-bottom: clamp(2rem, 6vw, 4rem);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .passport-heading h2 {
+    max-width: 15ch;
+    margin-bottom: 0;
+  }
+
+  .collection-count {
+    min-width: 7rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--colour-border);
+    border-radius: 1rem;
+    background: var(--colour-background);
+    text-align: center;
+  }
+
+  .collection-count strong {
+    color: var(--colour-coral);
+    font-family:
+      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .collection-count span {
+    margin-top: 0.35rem;
+    color: var(--colour-text-muted);
+    font-size: 0.72rem;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .stamp-card {
+    min-height: 12rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed currentColor;
+    border-radius: 1.2rem;
+    text-align: center;
+  }
+
+  .stamp-card strong {
+    color: var(--colour-text);
+    font-family:
+      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.15;
+  }
+
+  .stamp-card small {
+    margin-top: 0.35rem;
+    color: var(--colour-text-muted);
+    font-size: 0.66rem;
+  }
+
+  .stamp-mark {
+    width: 4.8rem;
+    height: 4.8rem;
+    margin-bottom: 1rem;
+    display: grid;
+    place-items: center;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    transform: rotate(-5deg);
+  }
+
+  .stamp-mark::before,
+  .stamp-mark::after {
+    content: "";
+    position: absolute;
+  }
+
+  .stamp-mark span {
+    font-size: 1.75rem;
+    font-weight: 800;
+  }
+
+  .sage {
+    color: var(--colour-accent-bright);
+    background: rgba(135, 174, 115, 0.08);
+  }
+
+  .coral {
+    color: var(--colour-coral);
+    background: color-mix(
+      in srgb,
+      var(--colour-coral-soft) 55%,
+      transparent
+    );
+  }
+
+  .blue {
+    color: #6f91aa;
+    background: rgba(111, 145, 170, 0.08);
+  }
+
+  .gold {
+    color: #b58a3f;
+    background: rgba(181, 138, 63, 0.08);
+  }
+
+  .stamp-types {
+    padding-block: clamp(6rem, 13vw, 10rem);
+  }
+
+  .section-heading {
+    max-width: 48rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .section-heading h2 {
+    max-width: 15ch;
+  }
+
+  .achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .achievement-grid article {
+    min-height: 11rem;
+    padding: clamp(1.25rem, 4vw, 2rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid currentColor;
+    border-radius: 1.3rem;
+  }
+
+  .achievement-mark {
+    width: 5rem;
+    height: 5rem;
+    display: grid;
+    place-items: center;
+    border: 2px dashed currentColor;
+    border-radius: 1.1rem;
+    transform: rotate(-4deg);
+  }
+
+  .achievement-mark span {
+    font-family:
+      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.45rem;
+    font-weight: 850;
+  }
+
+  .achievement-grid h3 {
+    margin-bottom: 0.55rem;
+    color: var(--colour-text);
+  }
+
+  .achievement-grid p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+
+  .achievement-grid .locked {
+    color: var(--colour-text-muted);
+    background: var(--colour-surface);
+    opacity: 0.7;
+  }
+
+  .postmarks {
+    padding: clamp(2rem, 6vw, 4rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1fr);
+    align-items: center;
+    gap: clamp(3rem, 8vw, 7rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.6rem;
+    background:
+      radial-gradient(
+        circle at 90% 15%,
+        rgba(217, 130, 130, 0.17),
+        transparent 22rem
+      ),
+      var(--colour-surface);
+  }
+
+  .postmark-copy h2 {
+    max-width: 13ch;
+    margin-bottom: 1.3rem;
+  }
+
+  .postmark-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  .postmark-scene {
+    min-height: 29rem;
+    position: relative;
+  }
+
+  .country-card {
+    width: min(100%, 19rem);
+    min-height: 24rem;
+    margin: 2rem auto 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--colour-border);
+    border-radius: 1.4rem;
+    background:
+      linear-gradient(
+        160deg,
+        rgba(135, 174, 115, 0.14),
+        transparent 60%
+      ),
+      var(--colour-background);
+    box-shadow: 0 1.5rem 3rem rgba(42, 50, 41, 0.12);
+    text-align: center;
+    transform: rotate(2deg);
+  }
+
+  .country-card small {
+    color: var(--colour-text-muted);
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .country-card > span {
+    margin-block: 2rem 1rem;
+    color: var(--colour-accent-bright);
+    font-family:
+      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .country-card strong {
+    color: var(--colour-text);
+    font-family:
+      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.25rem;
+  }
+
+  .country-card p {
+    margin: 0.6rem 0 0;
+    font-size: 0.75rem;
+  }
+
+  .round-postmark {
+    width: 7.5rem;
+    height: 7.5rem;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed currentColor;
+    border-radius: 50%;
+    background: var(--colour-surface);
+    box-shadow: 0 0.8rem 1.8rem rgba(40, 47, 39, 0.13);
+  }
+
+  .round-postmark span,
+  .round-postmark small {
+    font-size: 0.58rem;
+    font-weight: 850;
+    letter-spacing: 0.09em;
+  }
+
+  .round-postmark strong {
+    font-size: 1.55rem;
+  }
+
+  .postmark-one {
+    top: 0;
+    right: 0;
+    color: var(--colour-coral);
+    transform: rotate(10deg);
+  }
+
+  .postmark-two {
+    bottom: 0;
+    right: 1rem;
+    color: #6f91aa;
+    transform: rotate(-6deg);
+  }
+
+  .postmark-three {
+    bottom: 1rem;
+    left: 0;
+    color: var(--colour-accent-bright);
+    transform: rotate(7deg);
+  }
+
+  .privacy-note {
+    margin-top: clamp(6rem, 13vw, 10rem);
+    padding: clamp(2rem, 6vw, 4rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 1fr);
+    gap: clamp(2rem, 7vw, 6rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.5rem;
+    background: var(--colour-surface);
+  }
+
+  .privacy-note h2 {
+    max-width: 12ch;
+    margin-bottom: 0;
+  }
+
+  .privacy-note p {
+    margin-bottom: 1.2rem;
+  }
+
+  .privacy-note a {
+    color: var(--colour-accent-bright);
+    font-weight: 750;
+  }
+
+  .privacy-note a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 56rem) {
+    .calendar-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .postmarks {
+      grid-template-columns: 1fr;
+    }
+
+    .postmark-scene {
+      width: min(100%, 29rem);
+      margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 42rem) {
+    .passport-heading {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .calendar-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .achievement-grid,
+    .privacy-note {
+      grid-template-columns: 1fr;
+    }
+
+    .achievement-grid article {
+      min-height: auto;
+    }
+
+    .round-postmark {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+
+    .country-card {
+      width: 75%;
+    }
+  }
+
+  @media (max-width: 25rem) {
+    .calendar-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .achievement-grid article {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
