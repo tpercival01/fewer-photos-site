@@ -45,60 +45,53 @@ const achievementStamps = [
 ---
 
 <BaseLayout
-  title="The Stamp Book | Fewer Photos"
-  description="Complete months, reach review milestones, build streaks and collect personal location stamps while tidying your camera roll."
+  title='The Stamp Book | Fewer Photos'
+  description='Complete months, reach review milestones, build streaks and collect personal location stamps while tidying your camera roll.'
 >
-  <section class="page-header">
-    <p class="eyebrow">The Stamp Book</p>
+  <section class='page-header'>
+    <p class='eyebrow'>The Stamp Book</p>
     <h1>A little record of every photo-sorting victory.</h1>
 
-    <p class="introduction">
+    <p class='introduction'>
       Tidying a camera roll is useful, but it does not need to feel like
-      administration. Fewer Photos turns completed months, review milestones
-      and rediscovered places into a personal collection of stamps.
+      administration. Fewer Photos turns completed months, review milestones and
+      rediscovered places into a personal collection of stamps.
     </p>
   </section>
 
-  <section class="passport-preview" aria-label="Example Fewer Photos Stamp Book">
-    <div class="passport-heading">
-      <div>
-        <p class="eyebrow">Your collection</p>
-        <h2>Every stamp tells part of your library's story.</h2>
-      </div>
+  <section class='stamp-book-preview' aria-labelledby='stamp-preview-heading'>
+    <div class='stamp-preview-copy'>
+      <p class='eyebrow'>Your collection</p>
 
-      <div class="collection-count">
-        <strong>18</strong>
-        <span>collected</span>
-      </div>
+      <h2 id='stamp-preview-heading'>
+        Every stamp tells part of your library’s story.
+      </h2>
+
+      <p>
+        Complete months, reach milestones, build little rituals and rediscover
+        places already hidden inside your photo library.
+      </p>
     </div>
 
-    <div class="calendar-grid">
-      {
-        calendarStamps.map((stamp) => (
-          <article class={`stamp-card ${stamp.className}`}>
-            <div class="stamp-mark">
-              <span>{stamp.icon}</span>
-            </div>
-
-            <strong>{stamp.title}</strong>
-            <small>Month complete</small>
-          </article>
-        ))
-      }
+    <div class='stamp-book-phone'>
+      <img
+        src='/hero-stamp-book.jpeg'
+        alt='The Fewer Photos Stamp Book showing monthly stamps, a collected First Sort milestone and Coming Soon stamps.'
+      />
     </div>
   </section>
 
-  <section class="stamp-types" aria-labelledby="stamp-types-heading">
-    <div class="section-heading">
-      <p class="eyebrow">More than monthly completion</p>
-      <h2 id="stamp-types-heading">Small goals hidden throughout the app.</h2>
+  <section class='stamp-types' aria-labelledby='stamp-types-heading'>
+    <div class='section-heading'>
+      <p class='eyebrow'>More than monthly completion</p>
+      <h2 id='stamp-types-heading'>Small goals hidden throughout the app.</h2>
     </div>
 
-    <div class="achievement-grid">
+    <div class='achievement-grid'>
       {
         achievementStamps.map((stamp) => (
           <article class={stamp.className}>
-            <div class="achievement-mark">
+            <div class='achievement-mark'>
               <span>{stamp.icon}</span>
             </div>
 
@@ -112,9 +105,9 @@ const achievementStamps = [
     </div>
   </section>
 
-  <section class="postmarks">
-    <div class="postmark-copy">
-      <p class="eyebrow">Personal postmarks</p>
+  <section class='postmarks'>
+    <div class='postmark-copy'>
+      <p class='eyebrow'>Personal postmarks</p>
       <h2>Rediscover the places already inside your library.</h2>
 
       <p>
@@ -129,27 +122,27 @@ const achievementStamps = [
       </p>
     </div>
 
-    <div class="postmark-scene" aria-hidden="true">
-      <div class="country-card">
+    <div class='postmark-scene' aria-hidden='true'>
+      <div class='country-card'>
         <small>Country passport</small>
         <span>GB</span>
         <strong>United Kingdom</strong>
         <p>Three town stamps collected</p>
       </div>
 
-      <div class="round-postmark postmark-one">
+      <div class='round-postmark postmark-one'>
         <span>WINDSOR</span>
         <strong>10</strong>
         <small>PHOTOS</small>
       </div>
 
-      <div class="round-postmark postmark-two">
+      <div class='round-postmark postmark-two'>
         <span>LONDON</span>
         <strong>10</strong>
         <small>PHOTOS</small>
       </div>
 
-      <div class="round-postmark postmark-three">
+      <div class='round-postmark postmark-three'>
         <span>BRIGHTON</span>
         <strong>10</strong>
         <small>PHOTOS</small>
@@ -157,9 +150,9 @@ const achievementStamps = [
     </div>
   </section>
 
-  <section class="privacy-note">
+  <section class='privacy-note'>
     <div>
-      <p class="eyebrow">You stay in control</p>
+      <p class='eyebrow'>You stay in control</p>
       <h2>Location stamps are always optional.</h2>
     </div>
 
@@ -170,7 +163,7 @@ const achievementStamps = [
         stamp, and rejecting one does not affect your photo review.
       </p>
 
-      <a href="/privacy">How location information is handled</a>
+      <a href='/privacy'>How location information is handled</a>
     </div>
   </section>
 </BaseLayout>
@@ -204,11 +197,7 @@ const achievementStamps = [
     border: 1px solid var(--colour-border);
     border-radius: 1.75rem;
     background:
-      linear-gradient(
-        135deg,
-        rgba(135, 174, 115, 0.1),
-        transparent 45%
-      ),
+      linear-gradient(135deg, rgba(135, 174, 115, 0.1), transparent 45%),
       var(--colour-surface);
     box-shadow: 0 1.5rem 4rem rgba(44, 54, 42, 0.08);
   }
@@ -312,11 +301,7 @@ const achievementStamps = [
 
   .coral {
     color: var(--colour-coral);
-    background: color-mix(
-      in srgb,
-      var(--colour-coral-soft) 55%,
-      transparent
-    );
+    background: color-mix(in srgb, var(--colour-coral-soft) 55%, transparent);
   }
 
   .blue {
@@ -435,11 +420,7 @@ const achievementStamps = [
     border: 1px solid var(--colour-border);
     border-radius: 1.4rem;
     background:
-      linear-gradient(
-        160deg,
-        rgba(135, 174, 115, 0.14),
-        transparent 60%
-      ),
+      linear-gradient(160deg, rgba(135, 174, 115, 0.14), transparent 60%),
       var(--colour-background);
     box-shadow: 0 1.5rem 3rem rgba(42, 50, 41, 0.12);
     text-align: center;

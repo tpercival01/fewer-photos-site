@@ -35,19 +35,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
 
     <div class='phone-scene' aria-label='Preview of the Fewer Photos app'>
-      <div class='stamp stamp-one' aria-hidden='true'>
-        <span>✦</span>
-        <strong>First Sort</strong>
-      </div>
+      <img
+        src='/stamp_milestone_first.png'
+        alt=''
+        class='floating-stamp stamp-one'
+        aria-hidden='true'
+      />
 
-      <div class='stamp stamp-two' aria-hidden='true'>
-        <span>☀</span>
-        <strong>Golden July</strong>
-      </div>
+      <img
+        src='/stamp_calendar_august.png'
+        alt=''
+        class='floating-stamp stamp-two'
+        aria-hidden='true'
+      />
 
       <div class='phone'>
         <img
-          src='/hero-library.png'
+          src='/hero-library.jpeg'
           alt='The Fewer Photos month library showing completed and in-progress months.'
           class='phone-screenshot'
         />
@@ -264,46 +268,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     transform: translateX(-50%);
   }
 
-  .stamp {
-    width: 8.6rem;
-    min-height: 8.6rem;
-    padding: 1rem;
+  .floating-stamp {
+    width: 9rem;
+    height: auto;
     position: absolute;
     z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.55rem;
-    border: 2px dashed currentColor;
-    border-radius: 1.2rem;
-    background: var(--colour-surface);
-    box-shadow: 0 1rem 2rem rgba(35, 42, 34, 0.15);
-    text-align: center;
-  }
-
-  .stamp span {
-    font-size: 2rem;
-  }
-
-  .stamp strong {
-    font-family:
-      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
-    font-size: 0.82rem;
-    line-height: 1.1;
+    display: block;
+    filter: drop-shadow(0 1rem 1.2rem rgba(35, 42, 34, 0.22));
   }
 
   .stamp-one {
-    top: 2.5rem;
-    right: -1rem;
-    color: var(--colour-coral);
+    top: 1.5rem;
+    right: -1.5rem;
     transform: rotate(9deg);
   }
 
   .stamp-two {
-    bottom: 1.5rem;
-    left: -1.5rem;
-    color: var(--colour-accent-bright);
+    bottom: 1rem;
+    left: -2rem;
     transform: rotate(-8deg);
   }
 
@@ -448,10 +430,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       min-height: 39rem;
     }
 
-    .stamp {
+    .floating-stamp {
       width: 7rem;
-      min-height: 7rem;
-      padding: 0.8rem;
     }
 
     .stamp-one {
