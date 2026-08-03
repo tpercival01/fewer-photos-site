@@ -2,44 +2,44 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const calendarStamps = [
-  { icon: "❄", title: "Fresh January", className: "sage" },
-  { icon: "♥", title: "Fond February", className: "coral" },
-  { icon: "≈", title: "Marching On", className: "blue" },
-  { icon: "☂", title: "April Showers", className: "blue" },
-  { icon: "❧", title: "Merry May", className: "sage" },
-  { icon: "✿", title: "June in Bloom", className: "coral" },
-  { icon: "☀", title: "Golden July", className: "gold" },
-  { icon: "◉", title: "August Glow", className: "gold" },
-  { icon: "●", title: "Soft September", className: "sage" },
-  { icon: "☾", title: "October Oddities", className: "blue" },
-  { icon: "♨", title: "Cosy November", className: "coral" },
-  { icon: "✦", title: "December Done", className: "gold" },
+  { image: "/stamps/stamp_calendar_january.png", title: "Fresh January" },
+  { image: "/stamps/stamp_calendar_february.png", title: "Fond February" },
+  { image: "/stamps/stamp_calendar_march.png", title: "Marching On" },
+  { image: "/stamps/stamp_calendar_april.png", title: "April Showers" },
+  { image: "/stamps/stamp_calendar_may.png", title: "Merry May" },
+  { image: "/stamps/stamp_calendar_june.png", title: "June in Bloom" },
+  { image: "/stamps/stamp_calendar_july.png", title: "Golden July" },
+  { image: "/stamps/stamp_calendar_august.png", title: "August Glow" },
+  { image: "/stamps/stamp_calendar_september.png", title: "Soft September" },
+  { image: "/stamps/stamp_calendar_october.png", title: "October Oddities" },
+  { image: "/stamps/stamp_calendar_november.png", title: "Cosy November" },
+  { image: "/stamps/stamp_calendar_december.png", title: "December Done" },
 ];
 
 const achievementStamps = [
   {
-    icon: "✦",
+    image: "/stamps/stamp_milestone_first.png",
     title: "First Sort",
     detail: "Review your first photo.",
     className: "coral",
   },
   {
-    icon: "100",
+    image: "/stamps/stamp_milestone_100.png",
     title: "Tidy Hundred",
     detail: "Review 100 photos.",
     className: "sage",
   },
   {
-    icon: "7",
-    title: "Seven-Day Shuffle",
-    detail: "Review photos across seven consecutive days.",
+    image: "/stamps/stamp_streak_3.png",
+    title: "Three-Day Tidy",
+    detail: "Review photos across three consecutive days.",
     className: "blue",
   },
   {
-    icon: "?",
-    title: "Hidden Stamp",
-    detail: "Some stamps only reveal themselves when discovered.",
-    className: "locked",
+    image: "/stamps/stamp_secret_old_photo.png",
+    title: "Long Forgotten",
+    detail: "Rediscover a photograph from long ago.",
+    className: "gold",
   },
 ];
 ---
@@ -81,6 +81,35 @@ const achievementStamps = [
     </div>
   </section>
 
+  <section
+    class='calendar-showcase'
+    aria-labelledby='calendar-showcase-heading'
+  >
+    <div class='section-heading'>
+      <p class='eyebrow'>A year of progress</p>
+      <h2 id='calendar-showcase-heading'>
+        Complete a month. Add its stamp to your collection.
+      </h2>
+    </div>
+
+    <div class='calendar-grid'>
+      {
+        calendarStamps.map((stamp) => (
+          <article class='calendar-stamp'>
+            <img
+              src={stamp.image}
+              alt=''
+              loading='lazy'
+              aria-hidden='true'
+            />
+
+            <h3>{stamp.title}</h3>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
   <section class='stamp-types' aria-labelledby='stamp-types-heading'>
     <div class='section-heading'>
       <p class='eyebrow'>More than monthly completion</p>
@@ -92,7 +121,12 @@ const achievementStamps = [
         achievementStamps.map((stamp) => (
           <article class={stamp.className}>
             <div class='achievement-mark'>
-              <span>{stamp.icon}</span>
+              <img
+                src={stamp.image}
+                alt=''
+                loading='lazy'
+                aria-hidden='true'
+              />
             </div>
 
             <div>
@@ -122,31 +156,42 @@ const achievementStamps = [
       </p>
     </div>
 
-    <div class='postmark-scene' aria-hidden='true'>
-      <div class='country-card'>
-        <small>Country passport</small>
-        <span>GB</span>
-        <strong>United Kingdom</strong>
-        <p>Three town stamps collected</p>
-      </div>
+    <div
+      class='postmark-scene'
+      role='img'
+      aria-label='A Romania passport stamp surrounded by Iași, Brașov and Bucharest town postmarks.'
+    >
+      <img
+        src='/stamps/stamp_country_romania.png'
+        alt=''
+        class='location-stamp country-stamp'
+        loading='lazy'
+        aria-hidden='true'
+      />
 
-      <div class='round-postmark postmark-one'>
-        <span>WINDSOR</span>
-        <strong>10</strong>
-        <small>PHOTOS</small>
-      </div>
+      <img
+        src='/stamps/stamp_town_iasi.png'
+        alt=''
+        class='location-stamp town-stamp town-one'
+        loading='lazy'
+        aria-hidden='true'
+      />
 
-      <div class='round-postmark postmark-two'>
-        <span>LONDON</span>
-        <strong>10</strong>
-        <small>PHOTOS</small>
-      </div>
+      <img
+        src='/stamps/stamp_town_brasov.png'
+        alt=''
+        class='location-stamp town-stamp town-two'
+        loading='lazy'
+        aria-hidden='true'
+      />
 
-      <div class='round-postmark postmark-three'>
-        <span>BRIGHTON</span>
-        <strong>10</strong>
-        <small>PHOTOS</small>
-      </div>
+      <img
+        src='/stamps/stamp_town_bucharest.png'
+        alt=''
+        class='location-stamp town-stamp town-three'
+        loading='lazy'
+        aria-hidden='true'
+      />
     </div>
   </section>
 
@@ -240,58 +285,44 @@ const achievementStamps = [
     font-size: 0.72rem;
   }
 
+  .calendar-showcase {
+    padding-block: clamp(5rem, 11vw, 8rem);
+  }
+
   .calendar-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
   }
 
-  .stamp-card {
-    min-height: 12rem;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px dashed currentColor;
-    border-radius: 1.2rem;
+  .calendar-stamp {
+    min-width: 0;
+    padding: clamp(0.8rem, 2vw, 1.2rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.25rem;
+    background: color-mix(
+      in srgb,
+      var(--colour-surface) 88%,
+      transparent
+    );
     text-align: center;
   }
 
-  .stamp-card strong {
+  .calendar-stamp img {
+    width: 100%;
+    height: 13rem;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(
+      0 0.7rem 0.9rem rgba(35, 42, 34, 0.13)
+    );
+  }
+
+  .calendar-stamp h3 {
+    margin: 0.7rem 0 0;
     color: var(--colour-text);
-    font-family:
-      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
     font-size: 0.88rem;
-    line-height: 1.15;
-  }
-
-  .stamp-card small {
-    margin-top: 0.35rem;
-    color: var(--colour-text-muted);
-    font-size: 0.66rem;
-  }
-
-  .stamp-mark {
-    width: 4.8rem;
-    height: 4.8rem;
-    margin-bottom: 1rem;
-    display: grid;
-    place-items: center;
-    border: 2px solid currentColor;
-    border-radius: 50%;
-    transform: rotate(-5deg);
-  }
-
-  .stamp-mark::before,
-  .stamp-mark::after {
-    content: "";
-    position: absolute;
-  }
-
-  .stamp-mark span {
-    font-size: 1.75rem;
-    font-weight: 800;
+    line-height: 1.2;
   }
 
   .sage {
@@ -345,20 +376,19 @@ const achievementStamps = [
   }
 
   .achievement-mark {
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     display: grid;
     place-items: center;
-    border: 2px dashed currentColor;
-    border-radius: 1.1rem;
-    transform: rotate(-4deg);
+    flex-shrink: 0;
   }
 
-  .achievement-mark span {
-    font-family:
-      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
-    font-size: 1.45rem;
-    font-weight: 850;
+  .achievement-mark img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 0.7rem 0.8rem rgba(35, 42, 34, 0.14));
   }
 
   .achievement-grid h3 {
@@ -404,104 +434,51 @@ const achievementStamps = [
   }
 
   .postmark-scene {
-    min-height: 29rem;
+    min-height: 31rem;
     position: relative;
+    isolation: isolate;
   }
 
-  .country-card {
-    width: min(100%, 19rem);
-    min-height: 24rem;
-    margin: 2rem auto 0;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--colour-border);
-    border-radius: 1.4rem;
-    background:
-      linear-gradient(160deg, rgba(135, 174, 115, 0.14), transparent 60%),
-      var(--colour-background);
-    box-shadow: 0 1.5rem 3rem rgba(42, 50, 41, 0.12);
-    text-align: center;
-    transform: rotate(2deg);
-  }
-
-  .country-card small {
-    color: var(--colour-text-muted);
-    font-size: 0.68rem;
-    font-weight: 750;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .country-card > span {
-    margin-block: 2rem 1rem;
-    color: var(--colour-accent-bright);
-    font-family:
-      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
-    font-size: 4.5rem;
-    font-weight: 900;
-    line-height: 1;
-  }
-
-  .country-card strong {
-    color: var(--colour-text);
-    font-family:
-      ui-rounded, "SF Pro Rounded", Inter, ui-sans-serif, system-ui, sans-serif;
-    font-size: 1.25rem;
-  }
-
-  .country-card p {
-    margin: 0.6rem 0 0;
-    font-size: 0.75rem;
-  }
-
-  .round-postmark {
-    width: 7.5rem;
-    height: 7.5rem;
+  .location-stamp {
     position: absolute;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(
+      0 1rem 1.25rem rgba(40, 47, 39, 0.18)
+    );
+  }
+
+  .country-stamp {
+    width: min(72%, 20rem);
+    height: 25rem;
+    top: 2rem;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%) rotate(2deg);
+  }
+
+  .town-stamp {
+    width: 9.5rem;
+    height: 9.5rem;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed currentColor;
-    border-radius: 50%;
-    background: var(--colour-surface);
-    box-shadow: 0 0.8rem 1.8rem rgba(40, 47, 39, 0.13);
   }
 
-  .round-postmark span,
-  .round-postmark small {
-    font-size: 0.58rem;
-    font-weight: 850;
-    letter-spacing: 0.09em;
-  }
-
-  .round-postmark strong {
-    font-size: 1.55rem;
-  }
-
-  .postmark-one {
+  .town-one {
     top: 0;
-    right: 0;
-    color: var(--colour-coral);
-    transform: rotate(10deg);
+    right: -0.5rem;
+    transform: rotate(9deg);
   }
 
-  .postmark-two {
+  .town-two {
+    right: 0.5rem;
     bottom: 0;
-    right: 1rem;
-    color: #6f91aa;
-    transform: rotate(-6deg);
+    transform: rotate(-7deg);
   }
 
-  .postmark-three {
+  .town-three {
     bottom: 1rem;
     left: 0;
-    color: var(--colour-accent-bright);
-    transform: rotate(7deg);
+    transform: rotate(6deg);
   }
 
   .privacy-note {
@@ -567,13 +544,14 @@ const achievementStamps = [
       min-height: auto;
     }
 
-    .round-postmark {
-      width: 6.5rem;
-      height: 6.5rem;
+    .country-stamp {
+      width: 70%;
+      height: 23rem;
     }
 
-    .country-card {
-      width: 75%;
+    .town-stamp {
+      width: 7.5rem;
+      height: 7.5rem;
     }
   }
 
