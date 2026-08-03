@@ -89,12 +89,37 @@ const achievementStamps = [
         Complete months, reach milestones, build little rituals and rediscover
         places already hidden inside your photo library.
       </p>
+
+      <div class='stamp-preview-tags' aria-label='Stamp Book collections'>
+        <span>Months</span>
+        <span>Milestones</span>
+        <span>Little Rituals</span>
+        <span>Places</span>
+      </div>
     </div>
 
-    <div class='stamp-book-phone'>
+    <div class='stamp-book-scene'>
       <img
-        src='/hero-stamp-book.jpeg'
-        alt='The Fewer Photos Stamp Book showing monthly stamps, a collected First Sort milestone and Coming Soon stamps.'
+        src='/stamps/stamp_milestone_first.png'
+        alt=''
+        class='floating-stamp floating-stamp-one'
+        aria-hidden='true'
+      />
+
+      <div class='stamp-book-phone'>
+        <img
+          src='/hero-stamp-book.jpeg'
+          alt='The Fewer Photos Stamp Book showing collected milestone stamps, locked Little Ritual stamps and an England location stamp.'
+          loading='eager'
+          fetchpriority='high'
+        />
+      </div>
+
+      <img
+        src='/stamps/stamp_country_england.png'
+        alt=''
+        class='floating-stamp floating-stamp-two'
+        aria-hidden='true'
       />
     </div>
   </section>
@@ -253,6 +278,118 @@ const achievementStamps = [
 
   .introduction {
     font-size: clamp(1.05rem, 2vw, 1.3rem);
+  }
+
+  .stamp-book-preview {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(2rem, 6vw, 4.5rem);
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1fr);
+    align-items: center;
+    gap: clamp(3rem, 8vw, 7rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.75rem;
+    background:
+      radial-gradient(
+        circle at 86% 18%,
+        rgba(135, 174, 115, 0.2),
+        transparent 24rem
+      ),
+      radial-gradient(
+        circle at 4% 94%,
+        rgba(217, 130, 130, 0.13),
+        transparent 19rem
+      ),
+      var(--colour-surface);
+    box-shadow: 0 1.5rem 4rem rgba(44, 54, 42, 0.1);
+  }
+
+  .stamp-preview-copy {
+    position: relative;
+    z-index: 3;
+  }
+
+  .stamp-preview-copy h2 {
+    max-width: 12ch;
+    margin-bottom: 1.4rem;
+  }
+
+  .stamp-preview-copy > p:last-of-type {
+    max-width: 34rem;
+    margin-bottom: 1.7rem;
+  }
+
+  .stamp-preview-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .stamp-preview-tags span {
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--colour-border);
+    border-radius: 999px;
+    background: color-mix(
+      in srgb,
+      var(--colour-background) 78%,
+      transparent
+    );
+    color: var(--colour-text-muted);
+    font-size: 0.76rem;
+    font-weight: 750;
+  }
+
+  .stamp-book-scene {
+    min-height: 43rem;
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  .stamp-book-phone {
+    width: min(72%, 19rem);
+    padding: 0.45rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 2.65rem;
+    background: #111510;
+    box-shadow:
+      0 2.2rem 4rem rgba(28, 35, 27, 0.26),
+      0 0.5rem 1rem rgba(28, 35, 27, 0.16);
+    transform: rotate(1.25deg);
+  }
+
+  .stamp-book-phone img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2.25rem;
+  }
+
+  .floating-stamp {
+    width: 8.5rem;
+    height: 11rem;
+    position: absolute;
+    z-index: 3;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 1.1rem 1rem rgba(35, 42, 34, 0.2));
+  }
+
+  .floating-stamp-one {
+    top: 1.5rem;
+    left: 0;
+    transform: rotate(-8deg);
+  }
+
+  .floating-stamp-two {
+    right: -0.5rem;
+    bottom: 2.5rem;
+    transform: rotate(8deg);
   }
 
   .passport-preview {
@@ -526,6 +663,58 @@ const achievementStamps = [
 
   .privacy-note a:hover {
     text-decoration: underline;
+  }
+
+  @media (max-width: 56rem) {
+    .stamp-book-preview {
+      grid-template-columns: 1fr;
+    }
+
+    .stamp-preview-copy {
+      max-width: 38rem;
+    }
+
+    .stamp-book-scene {
+      min-height: 40rem;
+    }
+  }
+
+  @media (max-width: 42rem) {
+    .stamp-book-preview {
+      padding: 1.5rem;
+    }
+
+    .stamp-book-scene {
+      min-height: 34rem;
+    }
+
+    .stamp-book-phone {
+      width: min(72vw, 15rem);
+      border-radius: 2.2rem;
+    }
+
+    .stamp-book-phone img {
+      border-radius: 1.85rem;
+    }
+
+    .floating-stamp {
+      width: 6.5rem;
+      height: 8.5rem;
+    }
+  }
+
+  @media (max-width: 25rem) {
+    .stamp-book-scene {
+      min-height: 31rem;
+    }
+
+    .stamp-book-phone {
+      width: min(82vw, 14rem);
+    }
+
+    .floating-stamp {
+      display: none;
+    }
   }
 
   @media (max-width: 56rem) {
