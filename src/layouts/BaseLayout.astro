@@ -20,6 +20,9 @@ const socialImageURL = new URL(
   "/app-icon.png",
   Astro.site ?? Astro.url,
 ).href;
+
+const currentPath =
+  Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <!doctype html>
@@ -68,9 +71,26 @@ const socialImageURL = new URL(
       </a>
 
       <nav aria-label="Main navigation">
-        <a href="/how-it-works">How It Works</a>
-        <a href="/stamp-book">Stamp Book</a>
-        <a href="/support">Support</a>
+        <a
+          href="/how-it-works"
+          aria-current={currentPath === "/how-it-works" ? "page" : undefined}
+        >
+          How It Works
+        </a>
+
+        <a
+          href="/stamp-book"
+          aria-current={currentPath === "/stamp-book" ? "page" : undefined}
+        >
+          Stamp Book
+        </a>
+
+        <a
+          href="/support"
+          aria-current={currentPath === "/support" ? "page" : undefined}
+        >
+          Support
+        </a>
       </nav>
     </header>
 
@@ -82,8 +102,19 @@ const socialImageURL = new URL(
       <p>© 2026 Percival Studio</p>
 
       <nav aria-label="Footer navigation">
-        <a href="/privacy">Privacy</a>
-        <a href="/support">Support</a>
+        <a
+          href="/privacy"
+          aria-current={currentPath === "/privacy" ? "page" : undefined}
+        >
+          Privacy
+        </a>
+
+        <a
+          href="/support"
+          aria-current={currentPath === "/support" ? "page" : undefined}
+        >
+          Support
+        </a>
       </nav>
     </footer>
   </body>

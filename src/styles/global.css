@@ -118,6 +118,15 @@ footer nav a:hover {
   color: var(--colour-text);
 }
 
+header nav a[aria-current="page"],
+footer nav a[aria-current="page"] {
+  color: var(--colour-text);
+  text-decoration: underline;
+  text-decoration-color: var(--colour-coral);
+  text-decoration-thickness: 0.15rem;
+  text-underline-offset: 0.4rem;
+}
+
 .wordmark {
   color: var(--colour-text);
   font-family:
