@@ -17,6 +17,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </p>
   </section>
 
+  <figure class="workflow-preview">
+    <img
+      src="/hero-library.jpeg"
+      alt="Fewer Photos showing a camera roll organised into monthly photo collections."
+    />
+
+    <figcaption>
+      Choose a month and continue from exactly where you stopped.
+    </figcaption>
+  </figure>
+
   <section class="steps" aria-label="Fewer Photos review process">
     <article>
       <span>01</span>
@@ -154,6 +165,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   .introduction {
     font-size: clamp(1.05rem, 2vw, 1.3rem);
+  }
+
+  .workflow-preview {
+    margin: 0 0 clamp(4rem, 10vw, 7rem);
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border: 1px solid var(--colour-border);
+    border-radius: 1.5rem;
+    background: var(--colour-surface);
+    box-shadow: 0 1.5rem 4rem rgba(44, 54, 42, 0.08);
+  }
+
+  .workflow-preview img {
+    width: 100%;
+    max-height: 48rem;
+    display: block;
+    object-fit: contain;
+    border-radius: 1rem;
+  }
+
+  .workflow-preview figcaption {
+    margin-top: 1rem;
+    color: var(--colour-text-muted);
+    font-size: 0.85rem;
+    text-align: center;
   }
 
   .steps {
